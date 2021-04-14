@@ -18,14 +18,5 @@ class DefaultController extends AbstractController
         $data = $apiRequest->getData($user, $repository, $since, $until);
 
         return new JsonResponse($data);
-        die();
-
-//        $apiRequest->getData($user, $repository);
-//        die();
-
-//        return $this->render('default/index.html.twig', [
-//            'controller_name' => 'DefaultController',
-//            'searchForm' => $searchForm->createView(),
-//        ]);
     }
 }

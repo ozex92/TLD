@@ -6,7 +6,7 @@ class DateCalculator
     /**
      * @param int $since
      * @param int $until
-     * @return \DateTime[]
+     * @return string[]
      */
     public function createWeekRangeDate($since = 4, $until = 0)
     {
@@ -18,11 +18,12 @@ class DateCalculator
 
     /**
      * @param int $week
-     * @return \DateTime
+     * @return string
      * @throws \Exception
      */
     private function createDatetimeByWeek(int $week)
     {
-        return new \DateTime(sprintf('-%s week', $week));
+        $datetime = new \DateTime(sprintf('-%s week', $week));
+        return $datetime->format(\DateTimeInterface::ISO8601);
     }
 }
