@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Github\ApiRequest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,7 +15,9 @@ class DefaultController extends AbstractController
      */
     public function index(ApiRequest $apiRequest, string $user, string $repository, $since = 4, $until = 0): Response
     {
-        $apiRequest->getData($user, $repository, $since, $until);
+        $data = $apiRequest->getData($user, $repository, $since, $until);
+
+        return new JsonResponse($data);
         die();
 
 //        $apiRequest->getData($user, $repository);
